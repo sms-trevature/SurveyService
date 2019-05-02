@@ -10,27 +10,43 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The Class Question.
+ */
 @Entity
 @Table(name = "questions")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Question {
 
+	/** The question id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int questionId;
 
+	/** The question. */
 	@NotNull
 	private String question;
 
+	/** The type id. */
 	@NotNull
 	@Column(name = "type_id")
 	private int typeId;
 
+	/**
+	 * Instantiates a new question.
+	 */
 	public Question() {
 		super();
 	}
 
+	/**
+	 * Instantiates a new question.
+	 *
+	 * @param questionId the question id
+	 * @param question the question
+	 * @param typeId the type id
+	 */
 	public Question(int questionId, @NotNull String question, @NotNull int typeId) {
 		super();
 		this.questionId = questionId;
@@ -38,30 +54,63 @@ public class Question {
 		this.typeId = typeId;
 	}
 
+	/**
+	 * Gets the question id.
+	 *
+	 * @return the question id
+	 */
 	public int getQuestionId() {
 		return questionId;
 	}
 
+	/**
+	 * Sets the question id.
+	 *
+	 * @param questionId the new question id
+	 */
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
 	}
 
+	/**
+	 * Gets the question.
+	 *
+	 * @return the question
+	 */
 	public String getQuestion() {
 		return question;
 	}
 
+	/**
+	 * Sets the question.
+	 *
+	 * @param question the new question
+	 */
 	public void setQuestion(String question) {
 		this.question = question;
 	}
 
+	/**
+	 * Gets the type id.
+	 *
+	 * @return the type id
+	 */
 	public int getTypeId() {
 		return typeId;
 	}
 
+	/**
+	 * Sets the type id.
+	 *
+	 * @param typeId the new type id
+	 */
 	public void setTypeId(int typeId) {
 		this.typeId = typeId;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,6 +121,9 @@ public class Question {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,6 +145,9 @@ public class Question {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Question [questionId=" + questionId + ", question=" + question + ", typeId=" + typeId + "]";

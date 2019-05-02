@@ -11,33 +11,54 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The Class Survey.
+ */
 @Entity
 @Table(name = "surveys")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Survey {
 
+	/** The survey id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name = "id")
 	private int surveyId;
 	
+	/** The title. */
 	@NotNull
 	private String title;
 	
+	/** The description. */
 	@NotNull
 	private String description;
 	
+	/** The date created. */
 	@Column(name = "date_created")
 	@NotNull
 	private Date dateCreated;
 	
+	/** The closing date. */
 	@Column(name = "closing_date")
 	private Date closingDate;
 	
+	/** The template. */
 	private boolean template;
 	
+	/** The published. */
 	private boolean published;
 
+	/**
+	 * Instantiates a new survey.
+	 *
+	 * @param surveyId the survey id
+	 * @param title the title
+	 * @param description the description
+	 * @param dateCreated the date created
+	 * @param closingDate the closing date
+	 * @param template the template
+	 * @param published the published
+	 */
 	public Survey(int surveyId, @NotNull String title, @NotNull String description, @NotNull Date dateCreated,
 			Date closingDate, boolean template, boolean published) {
 		super();
@@ -50,12 +71,17 @@ public class Survey {
 		this.published = published;
 	}
 
+	/**
+	 * Instantiates a new survey.
+	 */
 	public Survey() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * Gets the survey id.
+	 *
 	 * @return the surveyId
 	 */
 	public int getSurveyId() {
@@ -63,6 +89,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the survey id.
+	 *
 	 * @param surveyId the surveyId to set
 	 */
 	public void setSurveyId(int surveyId) {
@@ -70,6 +98,8 @@ public class Survey {
 	}
 
 	/**
+	 * Gets the title.
+	 *
 	 * @return the title
 	 */
 	public String getTitle() {
@@ -77,6 +107,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the title.
+	 *
 	 * @param title the title to set
 	 */
 	public void setTitle(String title) {
@@ -84,6 +116,8 @@ public class Survey {
 	}
 
 	/**
+	 * Gets the description.
+	 *
 	 * @return the description
 	 */
 	public String getDescription() {
@@ -91,6 +125,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the description.
+	 *
 	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
@@ -98,6 +134,8 @@ public class Survey {
 	}
 
 	/**
+	 * Gets the date created.
+	 *
 	 * @return the dateCreated
 	 */
 	public Date getDateCreated() {
@@ -105,6 +143,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the date created.
+	 *
 	 * @param dateCreated the dateCreated to set
 	 */
 	public void setDateCreated(Date dateCreated) {
@@ -112,6 +152,8 @@ public class Survey {
 	}
 
 	/**
+	 * Gets the closing date.
+	 *
 	 * @return the closingDate
 	 */
 	public Date getClosingDate() {
@@ -119,6 +161,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the closing date.
+	 *
 	 * @param closingDate the closingDate to set
 	 */
 	public void setClosingDate(Date closingDate) {
@@ -126,6 +170,8 @@ public class Survey {
 	}
 
 	/**
+	 * Checks if is template.
+	 *
 	 * @return the template
 	 */
 	public boolean isTemplate() {
@@ -133,6 +179,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the template.
+	 *
 	 * @param template the template to set
 	 */
 	public void setTemplate(boolean template) {
@@ -140,6 +188,8 @@ public class Survey {
 	}
 
 	/**
+	 * Checks if is published.
+	 *
 	 * @return the published
 	 */
 	public boolean isPublished() {
@@ -147,6 +197,8 @@ public class Survey {
 	}
 
 	/**
+	 * Sets the published.
+	 *
 	 * @param published the published to set
 	 */
 	public void setPublished(boolean published) {

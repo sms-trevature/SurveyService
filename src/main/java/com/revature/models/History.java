@@ -12,35 +12,55 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The Class History.
+ */
 @Entity
 @Table(name = "survey_history")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class History {
 
+	/** The history id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int historyId;
 
+	/** The survey id. */
 	@NotNull
 	@Column(name = "survey_id")
 	private int surveyId;
 
+	/** The user email. */
 	@NotNull
 	@Column(name = "user_email")
 	private String userEmail;
 
+	/** The date assigned. */
 	@Column(name = "date_assigned")
 	@NotNull
 	private Date dateAssigned;
 
+	/** The date completed. */
 	@Column(name = "date_completed")
 	private Date dateCompleted;
 
+	/**
+	 * Instantiates a new history.
+	 */
 	public History() {
 		super();
 	}
 
+	/**
+	 * Instantiates a new history.
+	 *
+	 * @param historyId the history id
+	 * @param surveyId the survey id
+	 * @param userEmail the user email
+	 * @param dateAssigned the date assigned
+	 * @param dateCompleted the date completed
+	 */
 	public History(int historyId, @NotNull int surveyId, @NotNull String userEmail, @NotNull Date dateAssigned,
 			Date dateCompleted) {
 		super();
@@ -51,46 +71,99 @@ public class History {
 		this.dateCompleted = dateCompleted;
 	}
 
+	/**
+	 * Gets the history id.
+	 *
+	 * @return the history id
+	 */
 	public int getHistoryId() {
 		return historyId;
 	}
 
+	/**
+	 * Sets the history id.
+	 *
+	 * @param historyId the new history id
+	 */
 	public void setHistoryId(int historyId) {
 		this.historyId = historyId;
 	}
 
+	/**
+	 * Gets the survey id.
+	 *
+	 * @return the survey id
+	 */
 	public int getSurveyId() {
 		return surveyId;
 	}
 
+	/**
+	 * Sets the survey id.
+	 *
+	 * @param surveyId the new survey id
+	 */
 	public void setSurveyId(int surveyId) {
 		this.surveyId = surveyId;
 	}
 
+	/**
+	 * Gets the user email.
+	 *
+	 * @return the user email
+	 */
 	public String getUserEmail() {
 		return userEmail;
 	}
 
+	/**
+	 * Sets the user email.
+	 *
+	 * @param userEmail the new user email
+	 */
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
 
+	/**
+	 * Gets the date assigned.
+	 *
+	 * @return the date assigned
+	 */
 	public Date getDateAssigned() {
 		return dateAssigned;
 	}
 
+	/**
+	 * Sets the date assigned.
+	 *
+	 * @param dateAssigned the new date assigned
+	 */
 	public void setDateAssigned(Date dateAssigned) {
 		this.dateAssigned = dateAssigned;
 	}
 
+	/**
+	 * Gets the date completed.
+	 *
+	 * @return the date completed
+	 */
 	public Date getDateCompleted() {
 		return dateCompleted;
 	}
 
+	/**
+	 * Sets the date completed.
+	 *
+	 * @param dateCompleted the new date completed
+	 */
 	public void setDateCompleted(Date dateCompleted) {
 		this.dateCompleted = dateCompleted;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,6 +176,9 @@ public class History {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -134,6 +210,9 @@ public class History {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "History [historyId=" + historyId + ", surveyId=" + surveyId + ", userEmail=" + userEmail

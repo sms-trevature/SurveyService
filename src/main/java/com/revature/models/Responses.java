@@ -10,26 +10,41 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The Class Responses.
+ */
 @Entity
 @Table(name = "responses")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Responses {
 	
+	/** The id. */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	/** The user email. */
 	@Column(name = "user_email")
 	private String userEmail;
 	
+	/** The survey id. */
 	@ManyToOne
 	@JoinColumn(name = "survey_id")
 	private Survey surveyId;
 	
+	/** The answer id. */
 	@ManyToOne
 	@JoinColumn(name = "answer_id")
 	private Answers answerId;
 
+	/**
+	 * Instantiates a new responses.
+	 *
+	 * @param id the id
+	 * @param userEmail the user email
+	 * @param surveyId the survey id
+	 * @param answerId the answer id
+	 */
 	public Responses(int id, String userEmail, Survey surveyId, Answers answerId) {
 		super();
 		this.id = id;
@@ -38,12 +53,17 @@ public class Responses {
 		this.answerId = answerId;
 	}
 
+	/**
+	 * Instantiates a new responses.
+	 */
 	public Responses() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * Gets the id.
+	 *
 	 * @return the id
 	 */
 	public int getId() {
@@ -51,6 +71,8 @@ public class Responses {
 	}
 
 	/**
+	 * Sets the id.
+	 *
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
@@ -58,6 +80,8 @@ public class Responses {
 	}
 
 	/**
+	 * Gets the user email string.
+	 *
 	 * @return the userEmailString
 	 */
 	public String getUserEmailString() {
@@ -65,6 +89,8 @@ public class Responses {
 	}
 
 	/**
+	 * Sets the user email string.
+	 *
 	 * @param userEmailString the userEmailString to set
 	 */
 	public void setUserEmailString(String userEmailString) {
@@ -72,6 +98,8 @@ public class Responses {
 	}
 
 	/**
+	 * Gets the survey id.
+	 *
 	 * @return the surveyId
 	 */
 	public Survey getSurveyId() {
@@ -79,6 +107,8 @@ public class Responses {
 	}
 
 	/**
+	 * Sets the survey id.
+	 *
 	 * @param surveyId the surveyId to set
 	 */
 	public void setSurveyId(Survey surveyId) {
@@ -86,6 +116,8 @@ public class Responses {
 	}
 
 	/**
+	 * Gets the answer id.
+	 *
 	 * @return the answerId
 	 */
 	public Answers getAnswerId() {
@@ -93,6 +125,8 @@ public class Responses {
 	}
 
 	/**
+	 * Sets the answer id.
+	 *
 	 * @param answerId the answerId to set
 	 */
 	public void setAnswerId(Answers answerId) {

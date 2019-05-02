@@ -18,27 +18,52 @@ import com.revature.cognito.constants.CognitoRoles;
 import com.revature.models.Editor;
 import com.revature.services.EditorServiceImpl;
 
+/**
+ * The Class EditorController.
+ * This class is used to manage any editors.
+ */
 @RestController
 @RequestMapping("editors")//Maps this class to table editors in DB
 public class EditorController {
     
+	/** The Editor Service instantiation. */
 	//Tells Spring to connect bean automatically
 	@Autowired
 	private EditorServiceImpl eSI;
 
+	/**
+	 * Find all.
+	 * Will all of the editors within the database
+	 *
+	 * @return the list of all editors
+	 */
 	// we find all editors here using repo method findAll()
 	@GetMapping
 	List<Editor> findAll() {
 		return eSI.findAll();
 	}
 
+	/**
+	 * Find editor by id.
+	 * Will find an editor based on the passed editor ID
+	 *
+	 * @param id the id of the editor to search for
+	 * @return the list of editors that match the passed ID
+	 */
 	// Obtain id from URL and pass it to method find editor by id
 	@GetMapping("/{id}")
 	public List<Editor> findEditorById(@PathVariable int id) {
 		return eSI.findById(id);
 	}
 
-	 /* Obtains email from URL and pass it to method to find editor by email. We used
+	 /**
+ 	 * Find by email.
+ 	 * Will find the editors based on a passed email argument
+ 	 *
+ 	 * @param email the email address of the editor to search for
+ 	 * @return the list of editors that match the passed email address
+ 	 */
+ 	/* Obtains email from URL and pass it to method to find editor by email. We used
 	@PostMapping because correct email cant be passed in using
 	GetMapping*/
 	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
@@ -47,11 +72,25 @@ public class EditorController {
 		return eSI.findByEmail(email);
 	}
 
+	/**
+	 * Find by survey id survey id.
+	 * Method will find an editor based on a passed ID argument
+	 *
+	 * @param id the id of the survey we are using to find the editor(s)
+	 * @return the list of editors that are associated with the passed survey ID
+	 */
 	@GetMapping("/surveyId/{id}")
 	public List<Editor> findBySurveyIdSurveyId(@PathVariable int id) {
 		return eSI.findBySurveyIdSurveyId(id);
 	}
 
+	/**
+	 * Creates the editor.
+	 * Method used to create an editor.
+	 *
+	 * @param editor the editor to be created
+	 * @return the editor that was created
+	 */
 	// Creates editor by calling method createEditor from EditorServiceImpl class
 	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PostMapping
@@ -60,6 +99,13 @@ public class EditorController {
 	}
 
 	// Updates editor by calling method updateEditor from the EditorServiceImpl
+	/**
+	 * Update editor.
+	 * Method that updates a passed editor
+	 *
+	 * @param editor the editor to be updated
+	 * @return the editor that was updated
+	 */
 	// class
 	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@PatchMapping
@@ -67,6 +113,13 @@ public class EditorController {
 		return eSI.updateEditor(editor);
 	}
 
+    /**
+     * Delete editor.
+     * Method will delete an editor based on passed editor argument
+     *
+     * @param id the id of the editor to be deleted
+     * @return the string returned from deletion of the editor
+     */
     ////Deletes editor by calling method updateEditor from the EditorServiceImpl class
 	@CognitoAuth(roles= {CognitoRoles.STAGING_MANAGER, CognitoRoles.TRAINER})
 	@DeleteMapping

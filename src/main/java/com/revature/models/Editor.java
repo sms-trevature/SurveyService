@@ -14,44 +14,88 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The Class Editor.
+ */
 @Entity
 @Table(name = "editors")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Editor {
 
+	/** The id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	/** The email. */
 	private String email;
 
+	/** The survey id. */
 	@ManyToOne
 	@JoinColumn(name = "survey_id")
 	private Survey surveyId;
 
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the id.
+	 *
+	 * @param id the new id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Gets the email.
+	 *
+	 * @return the email
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * Sets the email.
+	 *
+	 * @param email the new email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * Gets the survey id.
+	 *
+	 * @return the survey id
+	 */
 	public Survey getSurveyId() {
 		return surveyId;
 	}
 
+	/**
+	 * Sets the survey id.
+	 *
+	 * @param surveyId the new survey id
+	 */
 	public void setSurveyId(Survey surveyId) {
 		this.surveyId = surveyId;
 	}
 
+	/**
+	 * Instantiates a new editor.
+	 *
+	 * @param id the id
+	 * @param email the email
+	 * @param surveyId the survey id
+	 */
 	public Editor(int id, String email, Survey surveyId) {
 		super();
 		this.id = id;
@@ -59,12 +103,18 @@ public class Editor {
 		this.surveyId = surveyId;
 	}
 
+	/**
+	 * Instantiates a new editor.
+	 */
 	public Editor() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -75,6 +125,9 @@ public class Editor {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -99,6 +152,9 @@ public class Editor {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Editor [id=" + id + ", email=" + email + ", surveyId=" + surveyId + "]";

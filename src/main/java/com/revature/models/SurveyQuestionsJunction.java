@@ -12,27 +12,42 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * The Class SurveyQuestionsJunction.
+ */
 @Entity
 @Table(name = "junction_survey_questions")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class SurveyQuestionsJunction {
 
+	/** The id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	/** The survey id. */
 	@ManyToOne
 	@JoinColumn(name = "survey_id")
 	private Survey surveyId;
 	
+	/** The question id. */
 	@ManyToOne
 	@JoinColumn(name = "question_id")
 	private Question questionId;
 	
+	/** The question order. */
 	@NotNull
 	@Column(name = "question_order")
 	private int questionOrder;
 
+	/**
+	 * Instantiates a new survey questions junction.
+	 *
+	 * @param id the id
+	 * @param surveyId the survey id
+	 * @param questionId the question id
+	 * @param questionOrder the question order
+	 */
 	public SurveyQuestionsJunction(int id, Survey surveyId, Question questionId, @NotNull int questionOrder) {
 		super();
 		this.id = id;
@@ -41,12 +56,17 @@ public class SurveyQuestionsJunction {
 		this.questionOrder = questionOrder;
 	}
 
+	/**
+	 * Instantiates a new survey questions junction.
+	 */
 	public SurveyQuestionsJunction() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * Gets the id.
+	 *
 	 * @return the id
 	 */
 	public int getId() {
@@ -54,6 +74,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Sets the id.
+	 *
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
@@ -61,6 +83,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Gets the survey id.
+	 *
 	 * @return the surveyId
 	 */
 	public Survey getSurveyId() {
@@ -68,6 +92,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Sets the survey id.
+	 *
 	 * @param surveyId the surveyId to set
 	 */
 	public void setSurveyId(Survey surveyId) {
@@ -75,6 +101,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Gets the question id.
+	 *
 	 * @return the questionId
 	 */
 	public Question getQuestionId() {
@@ -82,6 +110,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Sets the question id.
+	 *
 	 * @param questionId the questionId to set
 	 */
 	public void setQuestionId(Question questionId) {
@@ -89,6 +119,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Gets the question order.
+	 *
 	 * @return the questionOrder
 	 */
 	public int getQuestionOrder() {
@@ -96,6 +128,8 @@ public class SurveyQuestionsJunction {
 	}
 
 	/**
+	 * Sets the question order.
+	 *
 	 * @param questionOrder the questionOrder to set
 	 */
 	public void setQuestionOrder(int questionOrder) {
